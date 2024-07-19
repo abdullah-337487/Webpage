@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript and jQuery Examples</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>JavaScript and jQuery Examples</h1>
+
+    <!-- Introduction to JavaScript -->
+    <!--
+    <h2>Introduction to JavaScript</h2>
+    <p id="intro"></p>
+    <script>
+        document.getElementById("intro").innerHTML = "Hello, World!";
+    </script>
+    -->
+
+    <!-- Variables and Data Types -->
+    <!--
+    <h2>Variables and Data Types</h2>
+    <p id="variables"></p>
+    <script>
+        var age = 25;
+        let name = "John";
+        let isStudent = true;
+        const numbers = [1, 2, 3];
+        let person = { name: "John", age: 25 };
+
+        document.getElementById("variables").innerHTML = 
+            "Age: " + age + "<br>" +
+            "Name: " + name + "<br>" +
+            "Is Student: " + isStudent + "<br>" +
+            "Numbers: " + numbers.join(", ") + "<br>" +
+            "Person: " + JSON.stringify(person);
+    </script>
+	-->
+
+    <!-- Operators -->
+    <!--
+    <h2>Operators</h2>
+    <p id="operators"></p>
+    <script>
+        let x = 5;
+        let y = 10;
+
+        // Arithmetic operators
+        let sum = x + y;
+        let difference = x - y;
+        let product = x * y;
+        let quotient = x / y;
+
+        // Comparison operators
+        let isEqual = (x === y);
+        let isNotEqual = (x !== y);
+        let isGreater = (x > y);
+        let isLess = (x < y);
+
+        // Logical operators
+        let andOperator = (x < 10 && y > 5);
+        let orOperator = (x < 10 || y > 20);
+
+        document.getElementById("operators").innerHTML = 
+            "Sum: " + sum + "<br>" +
+            "Difference: " + difference + "<br>" +
+            "Product: " + product + "<br>" +
+            "Quotient: " + quotient + "<br>" +
+            "Is Equal: " + isEqual + "<br>" +
+            "Is Not Equal: " + isNotEqual + "<br>" +
+            "Is Greater: " + isGreater + "<br>" +
+            "Is Less: " + isLess + "<br>" +
+            "AND Operator: " + andOperator + "<br>" +
+            "OR Operator: " + orOperator;
+    </script>
+    -->
+
+    <!-- Conditional Statements -->
+    <!--
+    <h2>Conditional Statements</h2>
+    <p id="conditional"></p>
+    <script>
+        let age = 20;
+
+        if (age < 18) {
+            document.getElementById("conditional").innerHTML = "You are a minor.";
+        } else if (age >= 18 && age < 65) {
+            document.getElementById("conditional").innerHTML = "You are an adult.";
+        } else {
+            document.getElementById("conditional").innerHTML = "You are a senior.";
+        }
+    </script>
+    -->
+
+    <!-- Loops -->
+    <!--
+    <h2>Loops</h2>
+    <p id="loops"></p>
+    <script>
+        let text = "";
+        
+        // For loop
+        for (let i = 0; i < 5; i++) {
+            text += "The number is " + i + "<br>";
+        }
+
+        // While loop
+        let j = 0;
+        while (j < 5) {
+            text += "The number is " + j + "<br>";
+            j++;
+        }
+
+        document.getElementById("loops").innerHTML = text;
+    </script>
+    -->
+
+    <!-- Functions -->
+    <!--
+    <h2>Functions</h2>
+    <p id="functions"></p>
+    <script>
+        function greet(name) {
+            return "Hello, " + name + "!";
+        }
+
+        document.getElementById("functions").innerHTML = greet("John Doe");
+    </script>
+    -->
+
+    <!-- DOM Manipulation -->
+    <!--
+    <h2>DOM Manipulation</h2>
+    <p id="dom">This is a paragraph.</p>
+    <button onclick="changeText()">Change Text</button>
+    <script>
+        function changeText() {
+            document.getElementById("dom").innerHTML = "Text has been changed!";
+        }
+    </script>
+    -->
+
+    <!-- Events -->
+    <!--
+    <h2>Event Handling</h2>
+    <button id="eventButton">Click Me</button>
+    <p id="eventDemo"></p>
+    <script>
+        document.getElementById("eventButton").addEventListener("click", function() {
+            document.getElementById("eventDemo").innerHTML = "Button clicked!";
+        });
+		
+        document.getElementById("eventButton").addEventListener("mouseover", function() {
+            document.getElementById("eventButton").innerText = "Please Dont Click Me!!!";
+			$("#eventButton").css("cursor", "pointer");
+        });
+    </script>
+    -->
+
+    <!-- jQuery Example -->
+    <!--
+    <h2>jQuery Example</h2>
+    <button id="jqueryBtn">Click Me</button>
+    <script>
+        $(document).ready(function() {
+            $("#jqueryBtn").click(function() {
+                alert("Button clicked!");
+            });
+        });
+    </script>
+    -->
+
+    <!-- jQuery AJAX Example -->
+   
+    <h2>jQuery AJAX Example</h2>
+    <button id="fetchData">Fetch Data</button>
+    <div id="result"></div>
+    <script>
+        $(document).ready(function() {
+            $("#fetchData").click(function() {
+                $.ajax({
+                    url: "books.json",
+                    method: "GET",
+                    success: function(data) {
+                        let output = "<ul>";
+                        for (let i = 0; i < data.length; i++) {
+                            output += "<li >" + data[i].title + "</li>";
+                        }
+                        output += "</ul>";
+                        $("#result").html(output);
+                    }
+                });
+            });
+        });
+    </script>
+   
+</body>
+</html>

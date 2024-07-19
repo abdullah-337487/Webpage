@@ -1,0 +1,50 @@
+[
+  {
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "description": "A journey of self-discovery and spiritual awakening follows Santiago, an Andalusian shepherd boy, as he dreams of finding worldly treasure.",
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg"
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "description": "A novel about the serious issues of rape and racial inequality, but it is also full of warmth and humor.",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81Ox45HoXkL.jpg"
+  },
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "description": "A dystopian novel set in a totalitarian society ruled by Big Brother, where truth is subjective and manipulated.",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71kxa1-0zfL.jpg"
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "description": "A romantic novel that charts the emotional development of the protagonist, Elizabeth Bennet, who learns about the repercussions of hasty judgments.",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81WcnNQ-TBL.jpg"
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "description": "A novel about the decline of the American Dream in the 1920s, telling the story of the mysterious millionaire Jay Gatsby and his obsession with the beautiful Daisy Buchanan.",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71VZq7DNC4L.jpg"
+  },
+  {
+    "title": "Moby Dick",
+    "author": "Herman Melville",
+    "description": "A novel about the voyage of the whaling ship Pequod, led by Captain Ahab, who is intent on finding the great white whale Moby Dick.",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81PRs1qIZDL.jpg"
+  },
+  {
+    "title": "War and Peace",
+    "author": "Leo Tolstoy",
+    "description": "A novel that intertwines the lives of private and public individuals during the time of the Napoleonic wars and Russian society.",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/81GL8tHLyXL.jpg"
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "description": "A story about the life of Holden Caulfield, a teenager from New York City, who is living in a mental institution in Southern California.",
+    "image": "https://images-na.ssl-images-amazon.com/images/I/71g2ednj0JL.jpg"
+  }
+]
