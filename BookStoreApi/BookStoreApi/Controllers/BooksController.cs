@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using BookStoreApi.Models;
@@ -12,8 +12,8 @@ namespace BookStoreApi.Controllers
         // In-memory list to store books data
         private static List<Book> books = new List<Book>
         {
-            new Book { Id = 1, Title = "Book 1", Author = "Author 1", Description = "Description 1", ImageUrl = "ImageUrl 1" },
-            new Book { Id = 2, Title = "Book 2", Author = "Author 2", Description = "Description 2", ImageUrl = "ImageUrl 2" }
+            new Book { Id = 1, Title = "To Kill a Mockingbird", Author = "Harper Lee", Description = "A novel about the serious issues of rape and racial inequality, but it is also full of warmth and humor.", ImageUrl = "https://pro2-bar-s3-cdn-cf5.myportfolio.com/f01e52a529972294633eb1d545abb880/6523f2b85a0afee32e30926e_rw_600.gif?h=2cfba3ea482680d909ce2cb7393cc2c7" },
+            new Book { Id = 2, Title = "The Alchemist", Author = "Paulo Coelho", Description = "A journey of self-discovery and spiritual awakening follows Santiago, an Andalusian shepherd boy, as he dreams of finding worldly treasure.", ImageUrl = "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg" }
         };
 
         // GET /api/books
@@ -28,7 +28,7 @@ namespace BookStoreApi.Controllers
         public ActionResult<Book> GetBook(int id)
         {
             // Iterate through the books collection
-            foreach (var book in books)
+            foreach (var book in books)//<books> is the list of books
             {
                 if (book.Id == id)
                 {
