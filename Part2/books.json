@@ -1,0 +1,65 @@
+[
+  {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "description": "A novel about the decline of the American Dream in the 1920s, telling the story of the mysterious millionaire Jay Gatsby and his obsession with the beautiful Daisy Buchanan.",
+      "price": "$10.99",
+      "image": "https://i.ebayimg.com/images/g/rjYAAOSwX6pjMxTY/s-l1600.jpg"
+  },
+  {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "description": "A novel about the serious issues of rape and racial inequality, but it is also full of warmth and humor.",
+      "price": "$8.99",
+      "image": "https://pro2-bar-s3-cdn-cf5.myportfolio.com/f01e52a529972294633eb1d545abb880/6523f2b85a0afee32e30926e_rw_600.gif?h=2cfba3ea482680d909ce2cb7393cc2c7"
+  },
+  {
+      "title": "1984",
+      "author": "George Orwell",
+      "description": "A dystopian novel set in a totalitarian society ruled by Big Brother, where truth is subjective and manipulated.",
+      "price": "$9.99",
+      "image": "https://c8.alamy.com/comp/2MAEGHX/nineteen-eighty-four-novel-by-george-orwell-1949-penguin-books-edition-2MAEGHX.jpg"
+  },
+  {
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "author": "J.K. Rowling",
+      "description": "A young wizard’s journey begins with the discovery of his magical heritage and the battle against the dark wizard Voldemort.",
+      "price": "$12.99",
+      "image": "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9781408855652.jpg"  
+  },
+  {
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "description": "A story about the life of Holden Caulfield, a teenager from New York City, who is living in a mental institution in Southern California.",
+      "price": "$7.99",
+      "image": "https://i0.wp.com/www.printmag.com/wp-content/uploads/2010/02/2326a7_e6d8ea079e4344e791725f50fbb89a94mv2.jpg?resize=263%2C388&quality=89&ssl=1"
+  },
+  {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "description": "A romantic novel that charts the emotional development of the protagonist, Elizabeth Bennet, who learns about the repercussions of hasty judgments.",
+      "price": "$6.99",
+      "image": "https://images.squarespace-cdn.com/content/v1/58c180edff7c50dd0e51a2ad/1596041993633-UW2GTN4JZP8XLPZKKXCJ/9781847493699.jpg"
+  },
+  {
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "description": "A journey of self-discovery and spiritual awakening follows Santiago, an Andalusian shepherd boy, as he dreams of finding worldly treasure.",
+      "price": "$11.99",  
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg"
+  },
+  {
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "description": "A dystopian novel that explores a future society driven by technology and consumerism, where happiness is mandated and individuality is suppressed.",
+    "price": "$11.99",
+    "image": "https://i.ebayimg.com/images/g/MJQAAOSwgYpdUI1f/s-l1200.jpg"
+},
+  {
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "description": "A novel that intertwines the lives of private and public individuals during the time of the Napoleonic wars and Russian society.",
+      "price": "$14.99", 
+      "image": "https://m.media-amazon.com/images/I/81oHM-dzefL._AC_UF1000,1000_QL80_.jpg"
+  }
+]
