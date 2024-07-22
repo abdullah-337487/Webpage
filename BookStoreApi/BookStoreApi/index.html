@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <!--HEAD-->
 <head>
@@ -193,7 +193,7 @@
             // Function to fetch books data from API
             function fetchBooks() {
                 $.ajax({
-                    url: 'http://localhost:5158/api/books', // Change this URL to your API endpoint
+                    url: 'http://localhost:5140/api/books', 
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
@@ -265,7 +265,7 @@
             $('#search').on('input', function () {
                 const query = $(this).val().toLowerCase();
                 $.ajax({
-                    url: `http://localhost:5158/api/books/author/${query}`, // Update the URL based on your API structure
+                    url: `http://localhost:5140/api/books/author/${query}`, 
                     type: 'GET',
                     dataType: 'json',
                     success: function (results) {
