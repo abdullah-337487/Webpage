@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!--HEAD-->
+<head>
+    <meta charset="UTF-8">
+    <title>My Online Bookstore</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<!--BODY-->
+<body style="background-color: #fffaf0; font-family: Arial, sans-serif; line-height: 1.6; color: #333; ">
+    <!--HEADER-->
+    <header style="background-color: #8b4513; color: #fff; text-align: center; padding: 20px;">
+        <h1 style="font-family: 'Georgia'; font-size: 2.5em; margin-bottom: 20px;">Welcome to My Online Bookstore</h1>
+        <div>
+            <input type="text" id="search" placeholder="Search for books..." style="padding: 10px; width: 300px; border-radius: 5px; border: 1px solid #deb887;">
+        </div>
+        <section id="search-results" style="display: none; padding: 20px; margin-bottom: 20px; background-color: #f5deb3; border: 1px solid #deb887; border-radius: 5px;">
+            <h2 style="font-family: 'Georgia'; color: #8b4513; margin-bottom: 10px;">Search Results</h2>
+            <div id="results-container"></div>
+        </section>
+
+
+    </header>
+    <!--Navigation Bar-->
+    <!--Navigation Bar-->
+    <nav style="background-color: #d2b48c; padding: 10px 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 1000;">
+        <ul style="list-style-type: none; margin: 0; padding: 0; text-align: center; display: flex; justify-content: space-around; align-items: center;">
+            <li style="margin: 0;">
+                <a style="color: #333; text-decoration: none; font-weight: bold; font-size: 1.2em; padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s ease, color 0.3s ease; position: relative; overflow: hidden;" href="#featured-books" onmouseover="this.style.backgroundColor = '#8b7355'; this.style.color='#fff'; this.querySelector('.hover-line').style.width='100%'" onmouseout="this.style.backgroundColor = '#d2b48c'; this.style.color='#333'; this.querySelector('.hover-line').style.width='0'">
+                    Home
+                    <span class="hover-line" style="display: block; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #fff; transition: width 0.3s ease;"></span>
+                </a>
+            </li>
+            <li style="margin: 0;">
+                <a style="color: #333; text-decoration: none; font-weight: bold; font-size: 1.2em; padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s ease, color 0.3s ease; position: relative; overflow: hidden;" href="#book-list" onmouseover="this.style.backgroundColor = '#8b7355'; this.style.color='#fff'; this.querySelector('.hover-line').style.width='100%'" onmouseout="this.style.backgroundColor = '#d2b48c'; this.style.color='#333'; this.querySelector('.hover-line').style.width='0'">
+                    Books
+                    <span class="hover-line" style="display: block; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #fff; transition: width 0.3s ease;"></span>
+                </a>
+            </li>
+            <li style="margin: 0;">
+                <a style="color: #333; text-decoration: none; font-weight: bold; font-size: 1.2em; padding: 10px 15px; border-radius: 5px; transition: background-color 0.3s ease, color 0.3s ease; position: relative; overflow: hidden;" href="#contact-us" onmouseover="this.style.backgroundColor = '#8b7355'; this.style.color='#fff'; this.querySelector('.hover-line').style.width='100%'" onmouseout="this.style.backgroundColor = '#d2b48c'; this.style.color='#333'; this.querySelector('.hover-line').style.width='0'">
+                    Contact
+                    <span class="hover-line" style="display: block; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #fff; transition: width 0.3s ease;"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+    <!--SECTIONS-->
+    <!--Section to write featured books-->
+    <section id="featured-books" style="padding: 20px; margin-bottom: 20px; background-color: #f5deb3; border: 1px solid #deb887; border-radius: 5px; ">
+        <h2 style="font-family: 'Georgia', serif; color: #8b4513; margin-bottom: 10px;">Featured Book</h2>
+        <!--Adding a picture in featured books section-->
+        <img style="max-width: 100%; height: auto; margin-bottom: 10px; border-radius: 5px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg" alt="The Alchemist Book Cover" width="200">
+        <p style="font-size: 1em;  line-height: 1.4; color: #333;">Welcome to the world of "The Alchemist" by Paulo Coelho. This enchanting tale follows Santiago, an Andalusian shepherd boy who dreams of finding worldly treasure. Embark on a journey of self-discovery and spiritual awakening in this timeless masterpiece.</p>
+        <p style="font-size: 1em; line-height: 1.4; color: #333;">Discover why millions of readers worldwide have been captivated by this inspiring story of courage, destiny, and the pursuit of dreams.</p>
+    </section>
+    <!--Section to write About Us-->
+    <section id="about-us" style="padding: 20px; margin-bottom: 20px; background-color: #f5deb3; border: 1px solid #deb887; border-radius: 5px; ">
+        <h2 style="font-family: 'Georgia', serif; color: #8b4513; margin-bottom: 10px;">About Us</h2>
+        <p style="font-size: 1em;  line-height: 1.4; color: #333;">Welcome to My Online Bookstore, your go-to destination for discovering a wide range of books across genres. Our bookstore is dedicated to providing a curated selection of literature that caters to every reader's taste.</p>
+        <p style="font-size: 1em;  line-height: 1.4; color: #333;">At My Online Bookstore, we pride ourselves on our passion for books and commitment to customer satisfaction. Whether you're searching for classics, bestsellers, or hidden gems, we're here to help you find your next favorite read.</p>
+    </section>
+    <!-- Section to write Customer reviews -->
+    <section style="padding: 20px; margin-bottom: 20px; background-color: #f5deb3; border: 1px solid #deb887; border-radius: 5px;">
+        <h2 style="font-family: 'Georgia', serif; color: #8b4513; margin-bottom: 10px;">Customer Reviews</h2>
+
+        <div style="margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; background-color: #fff; border-radius: 5px;">
+            <p style="font-weight: bold; color: #8b4513; margin-bottom: 5px;">John Doe</p>
+            <div style="color: #f0c14b; font-size: 1.2em; margin-bottom: 5px;">
+                ★★★★★ <!-- Example of 5-star review -->
+            </div>
+            <p style="font-size: 1em; line-height: 1.4; color: #333;">"This bookstore is amazing! I found all the books I was looking for, and the staff was incredibly helpful."</p>
+        </div>
+
+        <div style="margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; background-color: #fff; border-radius: 5px;">
+            <p style="font-weight: bold; color: #8b4513; margin-bottom: 5px;">Jane Smith</p>
+            <div style="color: #f0c14b; font-size: 1.2em; margin-bottom: 5px;">
+                ★★★★☆ <!-- Example of 4-star review -->
+            </div>
+            <p style="font-size: 1em; line-height: 1.4; color: #333;">"I love the cozy atmosphere of this bookstore. It's my go-to place to discover new reads."</p>
+        </div>
+
+        <div style="margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; background-color: #fff; border-radius: 5px;">
+            <p style="font-weight: bold; color: #8b4513; margin-bottom: 5px;">Michael Johnson</p>
+            <div style="color: #f0c14b; font-size: 1.2em; margin-bottom: 5px;">
+                ★★★★☆ <!-- Example of 4-star review -->
+            </div>
+            <p style="font-size: 1em; line-height: 1.4; color: #333;">"Great selection of books and reasonable prices. I always recommend this bookstore to my friends."</p>
+        </div>
+    </section>
+    <!--Book list table -->
+
+    <section id="book-list" style="padding: 20px; margin-bottom: 20px; background-color: #f5deb3; border: 1px solid #deb887; border-radius: 5px;">
+        <button id="load-more" style="display:block; width: 10%; padding: 10px; margin-top: 20px; background-color: #8b4513; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+            Load More Books
+        </button>
+
+        <h2 style="font-family: 'Georgia', serif; color: #8b4513; margin-bottom: 10px;">Book List</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 20px; background-color: #fff; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); border-radius: 5px;">
+            <tr>
+                <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; color: #fff; background-color: #8b4513; font-weight: bold; border-top: 2px solid #8b4513;">Title</th>
+                <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; color: #fff; background-color: #8b4513; font-weight: bold; border-top: 2px solid #8b4513;">Author</th>
+                <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; color: #fff; background-color: #8b4513; font-weight: bold; border-top: 2px solid #8b4513;">Price</th>
+            </tr>
+            <!-- Initial books will be added by JavaScript -->
+        </table>
+    </section>
+
+    <!--Section to make Contact Us form-->
+    <section id="contact-us" style="padding: 20px; margin-bottom: 20px; background-color: #f5deb3; border: 1px solid #deb887; border-radius: 5px; ">
+        <h2 style="font-family: 'Georgia', serif; color: #8b4513; margin-bottom: 10px;text-align:center">
+            Contact Us
+        </h2>
+        <form style="max-width: 500px; margin: 20px auto; background-color: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);">
+            <label style="display:block; margin-bottom: 8px; font-weight: bold; color: #8b4513;" for="name">
+                Name:
+            </label>
+            <input style="width: calc(100% - 22px); padding: 10px; margin-bottom: 15px; border: 1px solid #deb887; border-radius: 5px; box-sizing: border-box; font-size: 1em; font-family: Arial, sans-serif; " type="text" id="name" name="name" placeholder="Enter your full name">
+            <br>
+            <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #8b4513;" for="email">
+                Email:
+            </label>
+            <input style="width: calc(100% - 22px); padding: 10px; margin-bottom: 15px; border: 1px solid #deb887; border-radius: 5px; box-sizing: border-box; font-size: 1em; font-family: Arial, sans-serif;" type="email" id="email" name="email" placeholder="abc123@gmail.com">
+            <br>
+            <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #8b4513;" for="number">
+                Phone Number:
+            </label>
+            <input style="width: calc(100% - 22px); padding: 10px; margin-bottom: 15px; border: 1px solid #deb887; border-radius: 5px; box-sizing: border-box; font-size: 1em; font-family: Arial, sans-serif;" type="number" id="number" name="number" placeholder="+92-xxx-xxxxxxx">
+            <br>
+            <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #8b4513;" for="message">
+                Message:
+            </label>
+            <textarea style="width: calc(100% - 22px); padding: 10px; margin-bottom: 15px; border: 1px solid #deb887; border-radius: 5px; box-sizing: border-box; font-size: 1em; font-family: Arial, sans-serif; " id="message" name="message" rows="4" cols="50" placeholder="Enter your message "></textarea>
+            <label>
+                <input type="checkbox" id="subscribe" name="subscribe">
+                Subscribe to our newsletter
+            </label>
+            <br>
+            <label>
+                Preferred Contact Method:
+            </label>
+            <label>
+                <input type="radio" id="contact-email" name="contact-method" value="email">
+                Email
+            </label>
+            <label>
+                <input type="radio" id="contact-phone" name="contact-method" value="phone">
+                Phone
+            </label>
+            <br>
+            <br>
+            <input style="background-color: #8b4513; color: #fff; padding: 10px 20px; border: none; cursor: pointer; font-size: 1em; border-radius: 5px; transition: background-color 0.3s ease; " type="submit" value="Submit" onmouseover="this.style.backgroundColor = '#f5deb3'; this.style.color='#000'" onmouseout="this.style.backgroundColor = '#8b4513'; this.style.color='#fff'">
+        </form>
+    </section>
+    <!--Footer-->
+    <footer style="background-color: #8b4513; color: #fff; text-align: center; padding: 10px; bottom: 0; width: 100%;">
+        <p style="font-size: 1em; line-height: 1.4; color: #fff;">
+            &copy; 2024 My Online Bookstore
+        </p>
+    </footer>
+    <!--Javascript section-->
+    <script>
+        $(document).ready(function () {
+            let booksData = [];// Array to store books data fetched from the JSON file
+            let currentIndex = 2;// Index to keep track of the current position for loading more books
+            const booksPerPage = 2;// Number of books to display per page
+            const displayedBooks = new Set([// Set to keep track of books that have already been displayed
+                'The Great Gatsby',
+                'To Kill a Mockingbird'
+            ]);
+    
+            
+            function createTableRow(book) {
+                // Create a table row with book details
+                return $('<tr>').html(`
+                    <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd;">${book.title}</td>
+                    <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd;">${book.author}</td>
+                    <td style="padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd;">${book.price}</td>
+                `);
+            }
+    
+            // Function to display initial books
+            function displayInitialBooks() {
+                const table = $('table');
+                booksData.forEach((book) => {
+                     // If the book title is in the displayedBooks set, append it to the table
+                    if (displayedBooks.has(book.title)) {
+                        table.append(createTableRow(book));
+                    }
+                });
+            }
+    
+            // Function to fetch books data from JSON file
+            function fetchBooks() {
+                $.ajax({
+                    url: 'books.json',
+                    type: 'GET',// HTTP method to use for the request
+                    dataType: 'json',
+                    success: function (data) {
+                        booksData = data;
+                        displayInitialBooks();
+                    },
+                    error: function () {
+                        console.error('Failed to fetch books data.');
+                    }
+                });
+            }
+    
+            // Function to display more books
+            function displayBooks() {
+                const table = $('table');
+                const endIndex = Math.min(currentIndex + booksPerPage, booksData.length);
+    
+                for (let i = currentIndex; i < endIndex; i++) {
+                    const book = booksData[i];
+                    if (displayedBooks.has(book.title)) continue;// Skip the book if it has already been displayed
+           // Append the book to the table and add it to the displayedBooks set
+                    table.append(createTableRow(book));
+                    displayedBooks.add(book.title);
+                }
+    
+                currentIndex = endIndex;
+    // If all books have been displayed, disable the "Load More" button
+                if (currentIndex >= booksData.length) {
+                    $('#load-more').text('No more books').prop('disabled', true);
+                }
+            }
+    
+            // Load more books on button click
+            $('#load-more').on('click', function () {
+                displayBooks();
+            });
+    
+            // Fetch books data on page load
+            fetchBooks();
+    
+            // Function to display search results
+            function displayResults(results) {
+                const resultsContainer = $('#results-container');
+                const resultsSection = $('#search-results');
+    
+                resultsContainer.empty();// Clear previous search results
+    
+                if (results.length === 0) {
+                    resultsContainer.html('<p>No books found.</p>');
+                } else {
+                     // Loop through the results and append each book to the results container
+                    results.forEach(function (book) {
+                        resultsContainer.append(`
+                            <div style="margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; background-color: #fff; border-radius: 5px;">
+                                <h3 style="color: #8b4513;">${book.title}</h3>
+                                <p style="color:#000;"><strong>Author:</strong> ${book.author}</p>
+                                <img src="${book.image}" style="max-width: 150px; height: auto; border-radius: 5px;">
+                                <p style="color:#000;">${book.description}</p>
+                            </div>
+                        `);
+                    });
+                }
+                resultsSection.show();
+            }
+    
+            // Search functionality 
+            $('#search').on('input', function () {
+                const query = $(this).val().toLowerCase();
+                const results = booksData.filter(function (book) {
+                    return book.title.toLowerCase().includes(query) ||
+                        book.author.toLowerCase().includes(query) ||
+                        book.description.toLowerCase().includes(query);
+                });
+    
+                displayResults(results);
+    
+                if (query === '') {
+                    $('#results-container').empty();
+                    $('#search-results').hide();
+                } else {
+                    $('#search-results').show();
+                }
+            });
+        });
+    </script>
+    
+
+
+
+
+</body>
+</html>
