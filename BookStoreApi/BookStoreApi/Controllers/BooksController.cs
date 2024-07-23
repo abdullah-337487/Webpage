@@ -27,23 +27,43 @@ namespace BookStoreApi.Controllers
         [HttpGet("{id}")]
         public ActionResult<Book> GetBook(int id)
         {
-            var book = books.FirstOrDefault(b => b.Id == id);
-
-            if (book == null)
+            // Loop through the list of books
+            for (int i = 0; i < books.Count; i++)
             {
-                return NotFound();
+                if (books[i].Id == id)
+                {
+                    // If the book is found, return it
+                    return books[i];
+                }
             }
 
-            return book;
+            // If no book is found with the given ID, return a 404 Not Found response
+            return NotFound();
         }
+
 
         // POST /api/books
         [HttpPost]
         public ActionResult<Book> AddBook(Book book)
         {
-            int maxId = books.Count > 0 ? books.Max(b => b.Id) : 0;
+            // Determine the maximum ID in the existing books list
+            int maxId = 0;
+            for (int i = 0; i < books.Count; i++)
+            {
+                if (books[i].Id > maxId)
+                {
+                    maxId = books[i].Id;
+                }
+            }
+
+            // Set the new book's ID to be one greater than the current maximum ID
             book.Id = maxId + 1;
+
+            // Add the new book to the books list
             books.Add(book);
+
+            // Return a response indicating that the book was successfully created
+         
             return CreatedAtAction(nameof(GetBook), new { id = book.Id }, book);
         }
 
@@ -51,50 +71,75 @@ namespace BookStoreApi.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateBook(int id, Book updatedBook)
         {
-            var bookToUpdate = books.FirstOrDefault(b => b.Id == id);
-
-            if (bookToUpdate == null)
+            // Find the book to update using a for loop
+            for (int i = 0; i < books.Count; i++)
             {
-                return NotFound();
+                if (books[i].Id == id)
+                {
+                    // Update the book  with the values from updatedBook
+                    books[i].Title = updatedBook.Title;
+                    books[i].Author = updatedBook.Author;
+                    books[i].Description = updatedBook.Description;
+                    books[i].ImageUrl = updatedBook.ImageUrl;
+                    books[i].Price = updatedBook.Price;
+
+                    // Return a No Content response indicating successful update
+                    return NoContent();
+                }
             }
 
-            bookToUpdate.Title = updatedBook.Title;
-            bookToUpdate.Author = updatedBook.Author;
-            bookToUpdate.Description = updatedBook.Description;
-            bookToUpdate.ImageUrl = updatedBook.ImageUrl;
-            bookToUpdate.Price = updatedBook.Price;
-
-            return NoContent();
+            // If no book is found with the given ID, return a 404 Not Found response
+            return NotFound();
         }
+
 
         // DELETE /api/books/{id}
         [HttpDelete("{id}")]
         public IActionResult DeleteBook(int id)
         {
-            var bookToDelete = books.FirstOrDefault(b => b.Id == id);
-
-            if (bookToDelete == null)
+            // Find the book to delete using a for loop
+            for (int i = 0; i < books.Count; i++)
             {
-                return NotFound();
+                if (books[i].Id == id)
+                {
+                    // Remove the book from the list
+                    books.RemoveAt(i);
+
+                    // Return a NoContent response indicating successful deletion
+                    return NoContent();
+                }
             }
 
-            books.Remove(bookToDelete);
-
-            return NoContent();
+            // If book is not found with the given ID, return a 404 Not Found response
+            return NotFound();
         }
+
 
         // GET /api/books/author/{author}
         [HttpGet("author/{author}")]
         public ActionResult<IEnumerable<Book>> GetBooksByAuthor(string author)
         {
-            var authorBooks = books.Where(b => b.Author.ToLower() == author.ToLower()).ToList();
+            // Initialize a list to store books by the given author
+            List<Book> authorBooks = new List<Book>();
 
+            // Loop through the books to find book by author name
+            for (int i = 0; i < books.Count; i++)
+            {
+                if (books[i].Author.ToLower() == author.ToLower())
+                {
+                    authorBooks.Add(books[i]);
+                }
+            }
+
+            // If no books are found by the given author, return a 404 Not Found response
             if (authorBooks.Count == 0)
             {
                 return NotFound();
             }
 
+            // Return the list of books by the given author
             return authorBooks;
         }
+
     }
 }
