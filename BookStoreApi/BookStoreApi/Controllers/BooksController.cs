@@ -12,8 +12,8 @@ namespace BookStoreApi.Controllers
         // In-memory list to store books data
         private static List<Book> books = new List<Book>
         {
-            new Book { Id = 1, Title = "To Kill a Mockingbird", Author = "Harper Lee", Description = "A novel about the serious issues of rape and racial inequality, but it is also full of warmth and humor.", ImageUrl = "https://pro2-bar-s3-cdn-cf5.myportfolio.com/f01e52a529972294633eb1d545abb880/6523f2b85a0afee32e30926e_rw_600.gif?h=2cfba3ea482680d909ce2cb7393cc2c7" },
-            new Book { Id = 2, Title = "The Alchemist", Author = "Paulo Coelho", Description = "A journey of self-discovery and spiritual awakening follows Santiago, an Andalusian shepherd boy, as he dreams of finding worldly treasure.", ImageUrl = "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg" }
+            new Book { Id = 1, Title = "To Kill a Mockingbird", Author = "Harper Lee", Description = "A novel about the serious issues of rape and racial inequality, but it is also full of warmth and humor.", ImageUrl = "https://pro2-bar-s3-cdn-cf5.myportfolio.com/f01e52a529972294633eb1d545abb880/6523f2b85a0afee32e30926e_rw_600.gif?h=2cfba3ea482680d909ce2cb7393cc2c7", Price = 10.99m },
+            new Book { Id = 2, Title = "The Alchemist", Author = "Paulo Coelho", Description = "A journey of self-discovery and spiritual awakening follows Santiago, an Andalusian shepherd boy, as he dreams of finding worldly treasure.", ImageUrl = "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg", Price = 12.99m }
         };
 
         // GET /api/books
@@ -27,135 +27,74 @@ namespace BookStoreApi.Controllers
         [HttpGet("{id}")]
         public ActionResult<Book> GetBook(int id)
         {
-            // Iterate through the books collection
-            foreach (var book in books)//<books> is the list of books
+            var book = books.FirstOrDefault(b => b.Id == id);
+
+            if (book == null)
             {
-                if (book.Id == id)
-                {
-                    return book; // Return the book if the ID matches
-                }
+                return NotFound();
             }
 
-            // Return 404 Not Found if no book matches the ID
-            return NotFound();
+            return book;
         }
-
 
         // POST /api/books
         [HttpPost]
         public ActionResult<Book> AddBook(Book book)
         {
-            // Initialize maxId to zero
-            int maxId = 0;
-
-            // Find the maximum ID in the books collection
-            foreach (var b in books)
-            {
-                if (b.Id > maxId)
-                {
-                    maxId = b.Id;
-                }
-            }
-
-            // Set the new book's ID to be the maximum ID plus one
+            int maxId = books.Count > 0 ? books.Max(b => b.Id) : 0;
             book.Id = maxId + 1;
-
-            // Add the new book to the collection
             books.Add(book);
-
-            // Return a response with the location of the newly created book
             return CreatedAtAction(nameof(GetBook), new { id = book.Id }, book);
         }
-
 
         // PUT /api/books/{id}
         [HttpPut("{id}")]
         public IActionResult UpdateBook(int id, Book updatedBook)
         {
-            // Find the book to update
-            Book bookToUpdate = null;
-            foreach (var b in books)
-            {
-                if (b.Id == id)
-                {
-                    bookToUpdate = b;
-                    break;
-                }
-            }
+            var bookToUpdate = books.FirstOrDefault(b => b.Id == id);
 
-            // If the book was not found, return a NotFound result
             if (bookToUpdate == null)
             {
                 return NotFound();
             }
 
-            // Update the book's details
             bookToUpdate.Title = updatedBook.Title;
             bookToUpdate.Author = updatedBook.Author;
             bookToUpdate.Description = updatedBook.Description;
             bookToUpdate.ImageUrl = updatedBook.ImageUrl;
+            bookToUpdate.Price = updatedBook.Price;
 
-            // Return a NoContent response indicating the update was successful
             return NoContent();
         }
-
 
         // DELETE /api/books/{id}
         [HttpDelete("{id}")]
         public IActionResult DeleteBook(int id)
         {
-            // Find the book to delete
-            Book bookToDelete = null;
-            foreach (var b in books)
-            {
-                if (b.Id == id)
-                {
-                    bookToDelete = b;
-                    break;
-                }
-            }
+            var bookToDelete = books.FirstOrDefault(b => b.Id == id);
 
-            // If the book was not found, return a NotFound result
             if (bookToDelete == null)
             {
                 return NotFound();
             }
 
-            // Remove the book from the list
             books.Remove(bookToDelete);
 
-            // Return a NoContent response indicating the deletion was successful
             return NoContent();
         }
-
 
         // GET /api/books/author/{author}
         [HttpGet("author/{author}")]
         public ActionResult<IEnumerable<Book>> GetBooksByAuthor(string author)
         {
-            var authorBooks = new List<Book>();
+            var authorBooks = books.Where(b => b.Author.ToLower() == author.ToLower()).ToList();
 
-            // Convert author to lowercase for case-insensitive comparison
-            string lowerAuthor = author.ToLower();
-
-            // Find all books by the given author
-            foreach (var book in books)
-            {
-                if (book.Author.ToLower() == lowerAuthor)
-                {
-                    authorBooks.Add(book);
-                }
-            }
-
-            // If no books were found, return NotFound
             if (authorBooks.Count == 0)
             {
                 return NotFound();
             }
 
-            // Return the list of books by the author
             return authorBooks;
         }
-
     }
 }
